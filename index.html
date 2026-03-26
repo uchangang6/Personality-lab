@@ -832,6 +832,9 @@ let currentQ = 0;
 let answers = [];
 
 function openTest(id) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'start', { event_category: 'test', event_label: id });
+  }
   const test = TESTS[id] || TESTS.mbti;
   currentTest = test;
   currentQ = 0;
@@ -974,19 +977,7 @@ function shareKakao() {
   });
 }
 
-// ★ Google Analytics 이벤트 트래킹
-function trackEvent(category, action, label) {
-  if (typeof gtag !== 'undefined') {
-    gtag('event', action, { event_category: category, event_label: label });
-  }
-}
-
-// 테스트 시작 시 GA 이벤트
-const _origOpenTest = openTest;
-function openTest(id) {
-  trackEvent('test', 'start', id);
-  _origOpenTest(id);
-}
+// ★ Google Analytics 이벤트 트래킹 — openTest 함수에 통합됨
 </script>
 </body>
 </html>
