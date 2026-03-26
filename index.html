@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>성격연구소 — 나를 알아가는 심리테스트</title>
+<meta name="description" content="MBTI, 연애유형, 직업적성, 스트레스유형 등 다양한 심리테스트를 무료로 체험해보세요. 100만 명이 함께한 무료 심리테스트.">
+<meta name="keywords" content="MBTI, 심리테스트, 성격유형, 연애유형, 직업적성, 에니어그램, 무료테스트">
+<meta name="robots" content="index, follow">
+<meta name="author" content="성격연구소">
+
+<!-- Open Graph (카카오/페이스북 공유 미리보기) -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="성격연구소 — 나를 알아가는 심리테스트">
+<meta property="og:description" content="MBTI, 연애유형, 직업적성 등 다양한 심리테스트를 무료로! 100만 명이 참여했습니다.">
+<meta property="og:image" content="https://YOUR_DOMAIN/og-image.png">
+<meta property="og:url" content="https://YOUR_DOMAIN">
+<meta property="og:site_name" content="성격연구소">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="성격연구소 — 나를 알아가는 심리테스트">
+<meta name="twitter:description" content="MBTI, 연애유형, 직업적성 등 무료 심리테스트 모음">
+<meta name="twitter:image" content="https://YOUR_DOMAIN/og-image.png">
+
+<!-- ★ Google Analytics 4 — GA_MEASUREMENT_ID를 실제 값으로 교체하세요 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'GA_MEASUREMENT_ID');
+</script>
+
+<!-- ★ Google AdSense — ca-pub-XXXXXXXXXX를 실제 Publisher ID로 교체하세요 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script>
+
+<!-- ★ 카카오 SDK — YOUR_KAKAO_JS_KEY를 실제 JavaScript 키로 교체하세요 -->
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js" crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Nanum+Myeongjo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FDF8F2;
+    --bg2: #F5EDE0;
+    --ink: #1A1208;
+    --ink2: #5A4A30;
+    --ink3: #9A8060;
+    --accent: #C8520A;
+    --accent2: #E8A050;
+    --teal: #1D6A5A;
+    --teal-light: #E1F5EE;
+    --purple: #534AB7;
+    --purple-light: #EEEDFE;
+    --pink: #993556;
+    --pink-light: #FBEAF0;
+    --amber: #BA7517;
+    --amber-light: #FAEEDA;
+    --border: rgba(90,74,48,0.15);
+    --border2: rgba(90,74,48,0.3);
+    --radius: 16px;
+    --shadow: 0 2px 20px rgba(26,18,8,0.08);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Gowun Dodum', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── AD BANNER TOP ── */
+  .ad-top {
+    background: var(--bg2);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+    color: var(--ink3);
+    letter-spacing: 0.1em;
+  }
+  .ad-slot {
+    display: inline-block;
+    background: #fff;
+    border: 1px dashed var(--border2);
+    border-radius: 6px;
+    padding: 6px 24px;
+    font-size: 11px;
+    color: var(--ink3);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── HEADER ── */
+  header {
+    padding: 40px 24px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .logo-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .logo {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: clamp(32px, 6vw, 52px);
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+  .logo span { color: var(--accent); }
+  .tagline {
+    font-size: 14px;
+    color: var(--ink2);
+    line-height: 1.7;
+  }
+  .ornament {
+    display: flex; align-items: center; gap: 12px;
+    margin: 20px auto 0; width: fit-content;
+  }
+  .ornament-line { width: 60px; height: 1px; background: var(--border2); }
+  .ornament-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent); }
+
+  /* ── NAV PILLS ── */
+  nav {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    justify-content: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-pill {
+    padding: 6px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border2);
+    font-size: 13px;
+    color: var(--ink2);
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.2s;
+    font-family: 'Gowun Dodum', sans-serif;
+  }
+  .nav-pill:hover, .nav-pill.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* ── LAYOUT ── */
+  .main-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 16px;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 24px;
+  }
+  @media(max-width: 768px) {
+    .main-wrap { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+  }
+
+  /* ── FEATURED CARD ── */
+  .featured {
+    background: var(--ink);
+    border-radius: var(--radius);
+    padding: 36px;
+    color: #fff;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .featured:hover { transform: translateY(-2px); }
+  .featured::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.15;
+  }
+  .featured::after {
+    content: '';
+    position: absolute;
+    bottom: -40px; left: 40%;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: var(--accent2);
+    opacity: 0.1;
+  }
+  .featured-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .featured h2 {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    position: relative;
+  }
+  .featured p { font-size: 14px; opacity: 0.75; line-height: 1.7; margin-bottom: 24px; }
+  .featured-meta { display: flex; gap: 20px; font-size: 12px; opacity: 0.6; margin-bottom: 24px; }
+  .btn-start {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.2s;
+  }
+  .btn-start:hover { background: #A83E06; }
+  .btn-arrow { font-size: 18px; }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--ink);
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-title::after {
+    content: ''; flex: 1;
+    height: 1px; background: var(--border);
+  }
+
+  /* ── TEST GRID ── */
+  .test-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .test-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .test-card:hover {
+    border-color: var(--border2);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+  .test-card-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .card-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+  .card-label {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink3);
+    margin-bottom: 6px;
+  }
+  .card-title {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .card-desc {
+    font-size: 13px;
+    color: var(--ink2);
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--ink3);
+  }
+  .card-badge {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: bold;
+  }
+  .badge-hot { background: var(--pink-light); color: var(--pink); }
+  .badge-new { background: var(--teal-light); color: var(--teal); }
+  .badge-popular { background: var(--amber-light); color: var(--amber); }
+
+  /* ── SIDEBAR ── */
+  .sidebar { display: flex; flex-direction: column; gap: 16px; }
+  .ad-sidebar {
+    background: #fff;
+    border: 1px dashed var(--border2);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink3);
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .ad-label { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; }
+  .ranking-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .ranking-title {
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 16px;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .rank-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: opacity 0.2s;
+    font-size: 13px;
+  }
+  .rank-item:last-child { border-bottom: none; }
+  .rank-item:hover { opacity: 0.7; }
+  .rank-num {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--bg2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    color: var(--ink2);
+    flex-shrink: 0;
+  }
+  .rank-num.top { background: var(--accent); color: #fff; }
+  .rank-name { color: var(--ink2); flex: 1; }
+  .rank-count { font-size: 11px; color: var(--ink3); }
+
+  /* ── TEST MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(26,18,8,0.6);
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal {
+    background: var(--bg);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 620px;
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 36px;
+    position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 20px; right: 20px;
+    background: none; border: none;
+    font-size: 22px; cursor: pointer;
+    color: var(--ink3);
+    font-family: 'Gowun Dodum', sans-serif;
+  }
+  .modal-header { margin-bottom: 28px; }
+  .modal-eyebrow { font-size: 11px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 8px; }
+  .modal-title { font-family: 'Nanum Myeongjo', serif; font-size: 26px; margin-bottom: 8px; }
+  .modal-desc { font-size: 14px; color: var(--ink2); line-height: 1.7; }
+
+  /* progress */
+  .progress-wrap { margin-bottom: 28px; }
+  .progress-label { display: flex; justify-content: space-between; font-size: 12px; color: var(--ink3); margin-bottom: 8px; }
+  .progress-bar { height: 4px; background: var(--bg2); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.4s; }
+
+  /* question */
+  .question { font-family: 'Nanum Myeongjo', serif; font-size: 20px; line-height: 1.5; margin-bottom: 24px; }
+  .options { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+  .option {
+    padding: 14px 18px;
+    border: 1px solid var(--border2);
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--ink2);
+    background: #fff;
+    transition: all 0.15s;
+    text-align: left;
+    font-family: 'Gowun Dodum', sans-serif;
+  }
+  .option:hover { border-color: var(--accent); color: var(--accent); }
+  .option.selected { border-color: var(--accent); background: #FFF3EC; color: var(--accent); }
+
+  .modal-nav { display: flex; justify-content: space-between; gap: 12px; }
+  .btn-prev {
+    padding: 12px 24px;
+    border: 1px solid var(--border2);
+    border-radius: 999px;
+    background: none;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    color: var(--ink2);
+  }
+  .btn-next {
+    padding: 12px 28px;
+    border-radius: 999px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    flex: 1;
+    transition: background 0.2s;
+  }
+  .btn-next:hover { background: #A83E06; }
+  .btn-next:disabled { background: var(--bg2); color: var(--ink3); cursor: default; }
+
+  /* result */
+  .result-wrap { text-align: center; }
+  .result-emoji { font-size: 56px; margin-bottom: 16px; }
+  .result-type { font-family: 'Nanum Myeongjo', serif; font-size: 32px; color: var(--accent); margin-bottom: 8px; }
+  .result-name { font-family: 'Nanum Myeongjo', serif; font-size: 22px; margin-bottom: 16px; }
+  .result-desc { font-size: 14px; color: var(--ink2); line-height: 1.8; margin-bottom: 28px; text-align: left; background: var(--bg2); padding: 20px; border-radius: 12px; }
+  .result-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 28px; }
+  .result-tag { padding: 6px 14px; border-radius: 999px; background: var(--purple-light); color: var(--purple); font-size: 13px; }
+  .share-btns { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+  .share-btn {
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+    border: 1px solid var(--border2);
+    background: #fff;
+    font-family: 'Gowun Dodum', sans-serif;
+    transition: all 0.15s;
+    color: var(--ink2);
+  }
+  .share-btn:hover { background: var(--bg2); }
+  .share-btn.kakao { background: #FEE500; border-color: #FEE500; color: #391B1B; }
+  .retry-btn {
+    display: block; width: 100%;
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-family: 'Gowun Dodum', sans-serif;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  /* ad in modal */
+  .modal-ad {
+    margin: 24px 0;
+    background: var(--bg2);
+    border-radius: 10px;
+    padding: 12px;
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink3);
+    min-height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px dashed var(--border2);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 40px 24px;
+    border-top: 1px solid var(--border);
+    color: var(--ink3);
+    font-size: 13px;
+    margin-top: 20px;
+  }
+  footer .footer-links { display: flex; gap: 20px; justify-content: center; margin-bottom: 12px; }
+  footer a { color: var(--ink3); text-decoration: none; }
+  footer a:hover { color: var(--ink2); }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--ink);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding: 16px;
+    flex-wrap: wrap;
+  }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Nanum Myeongjo', serif; font-size: 22px; color: var(--accent2); }
+  .stat-label { font-size: 11px; opacity: 0.6; letter-spacing: 0.1em; }
+</style>
+</head>
+<body>
+
+<!-- ★ 상단 광고 배너 (AdSense) -->
+<div class="ad-top" style="padding:8px; text-align:center;">
+  <ins class="adsbygoogle"
+    style="display:inline-block;width:728px;height:90px"
+    data-ad-client="ca-pub-XXXXXXXXXX"
+    data-ad-slot="1111111111"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<!-- 헤더 -->
+<header>
+  <div class="logo-eyebrow">심리검사 전문 플랫폼</div>
+  <h1 class="logo">성격<span>연구소</span></h1>
+  <p class="tagline">나는 어떤 사람일까? · 지금 바로 알아보세요<br>100만 명이 함께한 무료 심리테스트</p>
+  <div class="ornament">
+    <div class="ornament-line"></div>
+    <div class="ornament-dot"></div>
+    <div class="ornament-line"></div>
+  </div>
+</header>
+
+<!-- 통계 바 -->
+<div class="stats-bar">
+  <div class="stat"><div class="stat-num">1,240,388</div><div class="stat-label">누적 테스트 참여</div></div>
+  <div class="stat"><div class="stat-num">12</div><div class="stat-label">심리 테스트 종류</div></div>
+  <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">평균 만족도</div></div>
+</div>
+
+<!-- 카테고리 네비 -->
+<nav>
+  <button class="nav-pill active" onclick="filterCards('all', this)">전체</button>
+  <button class="nav-pill" onclick="filterCards('mbti', this)">MBTI·성격</button>
+  <button class="nav-pill" onclick="filterCards('love', this)">연애·관계</button>
+  <button class="nav-pill" onclick="filterCards('career', this)">직업·적성</button>
+  <button class="nav-pill" onclick="filterCards('mind', this)">정신건강</button>
+  <button class="nav-pill" onclick="filterCards('fun', this)">재미·유머</button>
+</nav>
+
+<div class="main-wrap">
+  <main>
+    <!-- 인기 테스트 피처드 -->
+    <div class="featured" onclick="openTest('mbti')">
+      <div class="featured-badge">🔥 이번 주 1위</div>
+      <h2>나의 진짜 MBTI는?</h2>
+      <p>공식 MBTI와 유사한 60문항 심층 검사. 단순 유형 분류를 넘어 당신의 에너지 방향, 정보처리 방식, 가치판단 기준까지 분석합니다.</p>
+      <div class="featured-meta">
+        <span>⏱ 약 8분</span>
+        <span>60문항</span>
+        <span>👥 892,441명 참여</span>
+      </div>
+      <button class="btn-start">지금 시작하기 <span class="btn-arrow">→</span></button>
+    </div>
+
+    <!-- 테스트 그리드 -->
+    <div class="section-title">인기 테스트</div>
+    <div class="test-grid" id="testGrid">
+
+      <div class="test-card" data-cat="love" onclick="openTest('love')">
+        <div class="test-card-accent" style="background:var(--pink)"></div>
+        <div class="card-icon">💕</div>
+        <div class="card-label">연애·관계</div>
+        <div class="card-title">나의 연애 유형</div>
+        <div class="card-desc">회피형인지, 불안형인지, 안정형인지. 애착 유형으로 당신의 연애 패턴을 분석합니다.</div>
+        <div class="card-footer">
+          <span>⏱ 5분 · 30문항</span>
+          <span class="card-badge badge-hot">HOT</span>
+        </div>
+      </div>
+
+      <div class="test-card" data-cat="career" onclick="openTest('career')">
+        <div class="test-card-accent" style="background:var(--teal)"></div>
+        <div class="card-icon">💼</div>
+        <div class="card-label">직업·적성</div>
+        <div class="card-title">나에게 맞는 직업은?</div>
+        <div class="card-desc">홀랜드 직업 흥미 이론 기반. 창의형·사회형·탐구형 등 6가지 유형으로 적성 직업을 찾습니다.</div>
+        <div class="card-footer">
+          <span>⏱ 6분 · 36문항</span>
+          <span class="card-badge badge-new">NEW</span>
+        </div>
+      </div>
+
+      <div class="test-card" data-cat="mind" onclick="openTest('stress')">
+        <div class="test-card-accent" style="background:var(--purple)"></div>
+        <div class="card-icon">🧠</div>
+        <div class="card-label">정신건강</div>
+        <div class="card-title">나의 스트레스 유형</div>
+        <div class="card-desc">어떤 상황에서 스트레스를 받고, 어떻게 해소하는지. 당신만의 스트레스 프로파일을 분석합니다.</div>
+        <div class="card-footer">
+          <span>⏱ 4분 · 24문항</span>
+          <span class="card-badge badge-popular">인기</span>
+        </div>
+      </div>
+
+      <div class="test-card" data-cat="fun" onclick="openTest('color')">
+        <div class="test-card-accent" style="background:var(--amber)"></div>
+        <div class="card-icon">🎨</div>
+        <div class="card-label">재미·유머</div>
+        <div class="card-title">나는 어떤 색깔일까?</div>
+        <div class="card-desc">색채 심리학으로 보는 나. 내 성격을 대표하는 컬러와 그 숨겨진 의미를 알아봅니다.</div>
+        <div class="card-footer">
+          <span>⏱ 3분 · 16문항</span>
+          <span class="card-badge badge-new">NEW</span>
+        </div>
+      </div>
+
+      <div class="test-card" data-cat="mbti" onclick="openTest('enneagram')">
+        <div class="test-card-accent" style="background:#B45309"></div>
+        <div class="card-icon">⭐</div>
+        <div class="card-label">MBTI·성격</div>
+        <div class="card-title">에니어그램 유형 검사</div>
+        <div class="card-desc">9가지 성격 유형으로 나의 핵심 동기, 두려움, 욕망을 발견합니다. MBTI보다 깊은 통찰.</div>
+        <div class="card-footer">
+          <span>⏱ 7분 · 45문항</span>
+          <span class="card-badge badge-popular">인기</span>
+        </div>
+      </div>
+
+      <div class="test-card" data-cat="love" onclick="openTest('love2')">
+        <div class="test-card-accent" style="background:#DB2777"></div>
+        <div class="card-icon">💬</div>
+        <div class="card-label">연애·관계</div>
+        <div class="card-title">나의 사랑의 언어</div>
+        <div class="card-desc">게리 채프먼의 5가지 사랑의 언어. 말·행동·선물·시간·스킨십 중 내가 가장 원하는 것은?</div>
+        <div class="card-footer">
+          <span>⏱ 4분 · 25문항</span>
+          <span class="card-badge badge-hot">HOT</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 중간 광고 -->
+    <!-- ★ 본문 중간 광고 (AdSense 리스폰시브) -->
+    <div style="text-align:center; margin: 28px 0;">
+      <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-XXXXXXXXXX"
+        data-ad-slot="2222222222"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="section-title">정신건강 테스트</div>
+    <div class="test-grid">
+      <div class="test-card" data-cat="mind" onclick="openTest('depression')">
+        <div class="test-card-accent" style="background:#6366F1"></div>
+        <div class="card-icon">🌧</div>
+        <div class="card-label">정신건강</div>
+        <div class="card-title">우울감 자가 체크</div>
+        <div class="card-desc">PHQ-9 기반 우울 자가검진. 전문 치료가 필요한지 가볍게 점검해보세요. (진단 목적 아님)</div>
+        <div class="card-footer"><span>⏱ 2분 · 9문항</span></div>
+      </div>
+      <div class="test-card" data-cat="mind" onclick="openTest('anxiety')">
+        <div class="test-card-accent" style="background:#7C3AED"></div>
+        <div class="card-icon">😤</div>
+        <div class="card-label">정신건강</div>
+        <div class="card-title">불안 수준 측정</div>
+        <div class="card-desc">GAD-7 표준화 불안 척도. 일상에서 느끼는 불안의 정도를 7가지 문항으로 파악합니다.</div>
+        <div class="card-footer"><span>⏱ 2분 · 7문항</span></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- 사이드바 -->
+  <aside class="sidebar">
+    <!-- ★ 사이드바 상단 광고 -->
+    <div class="ad-sidebar" style="min-height:auto; padding:0;">
+      <ins class="adsbygoogle"
+        style="display:inline-block;width:200px;height:200px"
+        data-ad-client="ca-pub-XXXXXXXXXX"
+        data-ad-slot="3333333333"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="ranking-card">
+      <div class="ranking-title">🏆 인기 테스트 순위</div>
+      <div class="rank-item" onclick="openTest('mbti')">
+        <div class="rank-num top">1</div>
+        <div class="rank-name">나의 진짜 MBTI</div>
+        <div class="rank-count">89만</div>
+      </div>
+      <div class="rank-item" onclick="openTest('love')">
+        <div class="rank-num top">2</div>
+        <div class="rank-name">연애 유형 검사</div>
+        <div class="rank-count">62만</div>
+      </div>
+      <div class="rank-item" onclick="openTest('career')">
+        <div class="rank-num">3</div>
+        <div class="rank-name">직업 적성 검사</div>
+        <div class="rank-count">44만</div>
+      </div>
+      <div class="rank-item" onclick="openTest('stress')">
+        <div class="rank-num">4</div>
+        <div class="rank-name">스트레스 유형</div>
+        <div class="rank-count">31만</div>
+      </div>
+      <div class="rank-item" onclick="openTest('enneagram')">
+        <div class="rank-num">5</div>
+        <div class="rank-name">에니어그램</div>
+        <div class="rank-count">28만</div>
+      </div>
+    </div>
+
+    <!-- ★ 사이드바 하단 광고 -->
+    <div class="ad-sidebar" style="min-height:auto; padding:0;">
+      <ins class="adsbygoogle"
+        style="display:inline-block;width:200px;height:200px"
+        data-ad-client="ca-pub-XXXXXXXXXX"
+        data-ad-slot="4444444444"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  </aside>
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="#">이용약관</a>
+    <a href="#">개인정보처리방침</a>
+    <a href="#">광고문의</a>
+    <a href="#">제휴문의</a>
+  </div>
+  <p>© 2025 성격연구소 · 본 테스트는 참고용이며 전문 심리 진단을 대체하지 않습니다.</p>
+</footer>
+
+<!-- 테스트 모달 -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" id="modalContent">
+    <button class="modal-close" onclick="closeModalDirect()">✕</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const TESTS = {
+  mbti: {
+    eyebrow: 'MBTI · 성격유형',
+    title: '나의 진짜 MBTI는?',
+    desc: '16가지 성격 유형 중 나는 어디에 속할까요? 아래 질문에 솔직하게 답해주세요.',
+    questions: [
+      { q: '파티나 모임이 끝난 후 나는 보통…', opts: ['활기차고 더 즐기고 싶은 느낌이다', '지치고 혼자만의 시간이 필요하다', '상황에 따라 다르다'] },
+      { q: '나는 계획을 세울 때…', opts: ['미리 꼼꼼히 세우고 따르는 편이다', '즉흥적으로 그때그때 결정한다', '큰 틀만 세우고 유연하게 적용한다'] },
+      { q: '갈등 상황에서 나는 주로…', opts: ['논리적으로 옳고 그름을 따진다', '상대방 감정을 먼저 헤아린다', '빠르게 타협점을 찾으려 한다'] },
+      { q: '미래를 생각할 때 나는…', opts: ['구체적인 현실과 사실에 집중한다', '가능성과 아이디어를 상상한다', '현재와 미래를 균형 있게 본다'] },
+      { q: '나에게 가장 맞는 업무 스타일은?', opts: ['데드라인 전에 일찍 마무리하는 것', '마감 직전 집중해서 끝내는 것', '프로젝트에 따라 다르게 한다'] },
+    ],
+    results: [
+      { type: 'ENFP', name: '재기발랄한 활동가', emoji: '🦋', desc: '당신은 열정적이고 창의적인 자유로운 영혼입니다. 항상 긍정적인 에너지로 주변을 밝히며, 새로운 아이디어와 가능성에 가슴이 두근거립니다. 사람들과의 연결을 소중히 여기지만, 가끔은 혼자만의 시간도 필요합니다. 창의적인 분야에서 두각을 나타내며, 변화를 두려워하지 않는 개척자 기질이 있습니다.', tags: ['창의적', '열정적', '공감능력', '자유로운'] },
+      { type: 'INTJ', name: '전략적인 전략가', emoji: '🦅', desc: '당신은 독립적이고 결단력 있는 전략가입니다. 큰 그림을 보는 능력과 깊은 통찰력으로 복잡한 문제를 해결합니다. 목표 지향적이며 높은 기준을 스스로에게 적용합니다. 혼자 깊이 생각하는 시간을 좋아하며, 효율성을 최우선으로 여깁니다.', tags: ['독립적', '전략적', '논리적', '결단력'] },
+      { type: 'INFJ', name: '통찰력 있는 예언자', emoji: '🌙', desc: '당신은 이상적이고 원칙적인 몽상가입니다. 깊은 통찰력으로 사람들의 마음을 꿰뚫어 보고, 인류의 더 나은 미래를 꿈꿉니다. 조용하지만 강한 신념을 가지고 있으며, 주변 사람들에게 영감을 줍니다.', tags: ['통찰력', '이상주의', '공감', '신념'] },
+    ]
+  },
+  love: {
+    eyebrow: '연애 · 관계',
+    title: '나의 연애 유형 검사',
+    desc: '나는 어떤 방식으로 사랑하고, 무엇을 두려워할까요? 애착 유형을 알아봅니다.',
+    questions: [
+      { q: '연인이 연락이 늦을 때 나는…', opts: ['별로 신경 쓰이지 않는다', '혹시 화났나 걱정되기 시작한다', '바쁜가 보다 하고 기다린다'] },
+      { q: '연인이 너무 집착하면…', opts: ['답답하고 멀어지고 싶어진다', '사랑받는 느낌이 든다', '때에 따라 다르게 느낀다'] },
+      { q: '다툼 후 나의 행동은?', opts: ['시간이 필요해 혼자 있고 싶다', '빨리 화해하고 싶어 먼저 연락한다', '상대가 먼저 연락하길 기다린다'] },
+      { q: '이상적인 연인과의 거리는?', opts: ['어느 정도 각자의 공간이 있어야 한다', '항상 붙어있고 싶다', '상황에 따라 조절한다'] },
+    ],
+    results: [
+      { type: '안정형', name: '안정 애착 유형', emoji: '🌿', desc: '당신은 건강하고 균형 잡힌 애착 유형을 가졌습니다. 친밀함과 독립성 사이에서 균형을 잘 유지하며, 갈등 상황에서도 차분하게 소통할 수 있습니다. 자신과 상대방 모두를 신뢰하는 능력이 뛰어납니다.', tags: ['균형적', '신뢰', '건강한 소통', '독립적'] },
+      { type: '회피형', name: '회피 애착 유형', emoji: '🦔', desc: '당신은 독립을 중요하게 여기며 친밀함이 불편하게 느껴질 수 있습니다. 상처받지 않으려는 방어 기제로 거리를 두는 경향이 있습니다. 내면에서는 사랑과 연결을 원하지만 표현이 어렵습니다.', tags: ['독립적', '자기방어', '거리두기', '냉정해 보임'] },
+      { type: '불안형', name: '불안 애착 유형', emoji: '🌊', desc: '당신은 사랑에 온 마음을 쏟는 열정적인 사람입니다. 하지만 버림받을까 두려워 확인을 구하거나 불안해하는 경향이 있습니다. 깊은 사랑의 능력을 가졌으며, 안정적인 관계에서 꽃을 피웁니다.', tags: ['열정적', '세심함', '불안감', '확인 욕구'] },
+    ]
+  },
+  stress: {
+    eyebrow: '정신건강',
+    title: '나의 스트레스 유형',
+    desc: '어떤 상황에서 스트레스를 받고, 어떻게 해소하는지 분석합니다.',
+    questions: [
+      { q: '나를 가장 힘들게 하는 상황은?', opts: ['일·과제가 쌓일 때', '인간관계 갈등이 생길 때', '미래가 불확실하게 느껴질 때'] },
+      { q: '스트레스 받을 때 나는 주로…', opts: ['혼자 잠시 사라지고 싶다', '음식·쇼핑·게임 등으로 푼다', '친구에게 털어놓는다'] },
+      { q: '스트레스 상태의 나를 표현하면?', opts: ['예민하고 짜증이 늘어난다', '무기력하고 아무것도 하기 싫다', '걱정이 많아지고 잠을 못 잔다'] },
+    ],
+    results: [
+      { type: '과부하형', name: '업무 과부하 스트레스', emoji: '⚡', desc: '당신의 스트레스는 주로 과도한 업무량과 책임감에서 옵니다. 완벽주의적 성향과 높은 기준이 스스로를 지치게 만듭니다. 의도적으로 휴식을 "예약"하고, 작업을 우선순위별로 분류하는 연습을 해보세요.', tags: ['과부하', '완벽주의', '책임감', '번아웃 주의'] },
+      { type: '관계형', name: '인간관계 스트레스', emoji: '🔴', desc: '대인관계에서 오는 갈등과 오해가 당신에게 가장 큰 스트레스원입니다. 타인의 감정에 민감하고 공감 능력이 뛰어나지만, 그만큼 상처도 쉽게 받습니다. 경계를 설정하는 연습과 솔직한 대화가 도움이 됩니다.', tags: ['관계 중심', '공감', '갈등 민감', '경계 설정 필요'] },
+    ]
+  },
+  career: {
+    eyebrow: '직업 · 적성',
+    title: '나에게 맞는 직업은?',
+    desc: '홀랜드 직업 흥미 이론 기반으로 당신에게 가장 잘 맞는 직업 유형을 찾아봅니다.',
+    questions: [
+      { q: '내가 즐기는 활동은?', opts: ['무언가를 만들거나 고치는 것', '사람들을 돕거나 가르치는 것', '데이터를 분석하거나 연구하는 것'] },
+      { q: '이상적인 직장 환경은?', opts: ['창의적이고 자유로운 분위기', '팀워크와 소통이 활발한 곳', '체계적이고 안정적인 조직'] },
+      { q: '나의 강점은?', opts: ['아이디어 발상과 표현력', '공감 능력과 의사소통', '분석력과 논리적 사고'] },
+    ],
+    results: [
+      { type: 'A유형', name: '예술·창의 직업군', emoji: '🎭', desc: '당신은 예술형(Artistic) 유형입니다. 창의적이고 표현하는 것을 즐기며 틀에 박힌 환경보다 자유롭게 아이디어를 펼칠 수 있는 곳에서 능력을 발휘합니다. 추천 직업: 디자이너, 작가, 영상 창작자, 마케터, 건축가', tags: ['창의성', '표현력', '자유로운 환경', '예술'] },
+      { type: 'S유형', name: '사회·서비스 직업군', emoji: '🤝', desc: '당신은 사회형(Social) 유형입니다. 사람을 돕고 관계를 맺는 데서 보람을 찾습니다. 교육, 복지, 의료 등 직접적으로 사람의 삶에 기여하는 분야가 적합합니다. 추천 직업: 교사, 상담사, 간호사, 사회복지사, HR 전문가', tags: ['공감', '소통', '봉사', '교육'] },
+      { type: 'I유형', name: '탐구·연구 직업군', emoji: '🔬', desc: '당신은 탐구형(Investigative) 유형입니다. 분석하고 문제를 해결하는 데 강점이 있습니다. 과학, 기술, 데이터 분야에서 두각을 나타냅니다. 추천 직업: 연구원, 데이터 분석가, 의사, 엔지니어, 컨설턴트', tags: ['분석력', '논리', '탐구', '문제해결'] },
+    ]
+  },
+};
+
+let currentTest = null;
+let currentQ = 0;
+let answers = [];
+
+function openTest(id) {
+  const test = TESTS[id] || TESTS.mbti;
+  currentTest = test;
+  currentQ = 0;
+  answers = new Array(test.questions.length).fill(null);
+  document.getElementById('modalOverlay').classList.add('open');
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const t = currentTest;
+  const total = t.questions.length;
+  const q = t.questions[currentQ];
+  const pct = Math.round((currentQ / total) * 100);
+
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-header">
+      <div class="modal-eyebrow">${t.eyebrow}</div>
+      <div class="modal-title">${t.title}</div>
+      <div class="modal-desc">${t.desc}</div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label"><span>질문 ${currentQ+1} / ${total}</span><span>${pct}%</span></div>
+      <div class="progress-bar"><div class="progress-fill" style="width:${pct}%"></div></div>
+    </div>
+    <div class="question">${q.q}</div>
+    <div class="options">
+      ${q.opts.map((o,i) => `<button class="option${answers[currentQ]===i?' selected':''}" onclick="selectOption(${i})">${o}</button>`).join('')}
+    </div>
+    <div class="modal-nav">
+      ${currentQ > 0 ? `<button class="btn-prev" onclick="prevQ()">← 이전</button>` : '<div></div>'}
+      <button class="btn-next" id="btnNext" onclick="nextQ()" ${answers[currentQ]===null?'disabled':''}>
+        ${currentQ === total-1 ? '결과 보기 ✨' : '다음 →'}
+      </button>
+    </div>
+  `;
+}
+
+function selectOption(i) {
+  answers[currentQ] = i;
+  document.querySelectorAll('.option').forEach((el,idx) => {
+    el.classList.toggle('selected', idx === i);
+  });
+  document.getElementById('btnNext').disabled = false;
+}
+
+function nextQ() {
+  if (answers[currentQ] === null) return;
+  if (currentQ < currentTest.questions.length - 1) {
+    currentQ++;
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function prevQ() {
+  if (currentQ > 0) { currentQ--; renderQuestion(); }
+}
+
+function showResult() {
+  const t = currentTest;
+  const idx = answers[0] % t.results.length;
+  const r = t.results[idx];
+  document.getElementById('modalBody').innerHTML = `
+    <div class="result-wrap">
+      <div class="result-emoji">${r.emoji}</div>
+      <div class="result-type">${r.type}</div>
+      <div class="result-name">${r.name}</div>
+      <div class="result-desc">${r.desc}</div>
+      <div class="result-tags">${r.tags.map(t=>`<span class="result-tag">${t}</span>`).join('')}</div>
+      <div class="modal-ad" style="min-height:auto; padding:0; border:none; background:none;">
+        <ins class="adsbygoogle"
+          style="display:inline-block;width:300px;height:250px"
+          data-ad-client="ca-pub-XXXXXXXXXX"
+          data-ad-slot="5555555555"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      <div class="share-btns">
+        <button class="share-btn kakao" onclick="shareKakao()">카카오 공유</button>
+        <button class="share-btn" onclick="copyResult('${r.type} ${r.name}')">링크 복사</button>
+        <button class="share-btn" onclick="shareTwitter('${r.type} ${r.name}')">X(트위터)</button>
+      </div>
+      <button class="retry-btn" onclick="openTest('${getTestId()}')">다시 테스트하기</button>
+    </div>
+  `;
+}
+
+function getTestId() {
+  return Object.keys(TESTS).find(k => TESTS[k] === currentTest) || 'mbti';
+}
+
+function copyResult(text) {
+  navigator.clipboard.writeText(`나의 심리테스트 결과: ${text} — 성격연구소에서 나도 해보기: ${location.href}`);
+  alert('링크가 복사되었습니다!');
+}
+
+function shareTwitter(text) {
+  window.open(`https://twitter.com/intent/tweet?text=나의 테스트 결과는 "${text}"! 성격연구소에서 나도 해보기 → ${location.href}`);
+}
+
+function closeModal(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+}
+function closeModalDirect() {
+  document.getElementById('modalOverlay').classList.remove('open');
+}
+
+function filterCards(cat, btn) {
+  document.querySelectorAll('.nav-pill').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.test-card').forEach(c => {
+    c.style.display = (cat === 'all' || c.dataset.cat === cat) ? 'block' : 'none';
+  });
+}
+
+// ★ 카카오 SDK 초기화 — YOUR_KAKAO_JS_KEY를 실제 키로 교체
+function initKakao() {
+  if (window.Kakao && !Kakao.isInitialized()) {
+    Kakao.init('YOUR_KAKAO_JS_KEY');
+  }
+}
+initKakao();
+
+// 카카오톡 공유
+function shareKakao() {
+  if (!window.Kakao || !Kakao.isInitialized()) {
+    alert('카카오 SDK 키를 설정해주세요 (YOUR_KAKAO_JS_KEY 교체 필요)');
+    return;
+  }
+  const r = currentTest && currentTest.results ? currentTest.results[answers[0] % currentTest.results.length] : null;
+  Kakao.Share.sendDefault({
+    objectType: 'feed',
+    content: {
+      title: '성격연구소 — ' + (r ? r.type + ' ' + r.name : '나의 심리테스트 결과'),
+      description: r ? r.desc.slice(0, 80) + '...' : '나도 테스트해보기!',
+      imageUrl: 'https://YOUR_DOMAIN/og-image.png',
+      link: { mobileWebUrl: location.href, webUrl: location.href }
+    },
+    buttons: [{ title: '나도 테스트하기', link: { mobileWebUrl: location.href, webUrl: location.href } }]
+  });
+}
+
+// ★ Google Analytics 이벤트 트래킹
+function trackEvent(category, action, label) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', action, { event_category: category, event_label: label });
+  }
+}
+
+// 테스트 시작 시 GA 이벤트
+const _origOpenTest = openTest;
+function openTest(id) {
+  trackEvent('test', 'start', id);
+  _origOpenTest(id);
+}
+</script>
+</body>
+</html>
